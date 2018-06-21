@@ -1,12 +1,5 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/site.js": "/js/site.js",
-    "/0.adb040f05b61123223e5.hot-update.js": "/0.adb040f05b61123223e5.hot-update.js",
-    "/0.28ce017eb415a3aa4446.hot-update.js": "/0.28ce017eb415a3aa4446.hot-update.js",
-    "/0.717940deae325b2e9232.hot-update.js": "/0.717940deae325b2e9232.hot-update.js",
-    "/0.93f975f11979026da7a1.hot-update.js": "/0.93f975f11979026da7a1.hot-update.js",
-    "/0.43a08dcee39f6e853493.hot-update.js": "/0.43a08dcee39f6e853493.hot-update.js",
-    "/0.01878d9fed779499a813.hot-update.js": "/0.01878d9fed779499a813.hot-update.js",
-    "/0.adb2ee981e2dda6a7969.hot-update.js": "/0.adb2ee981e2dda6a7969.hot-update.js"
+    "/js/site.js": "/js/site.js"
 }

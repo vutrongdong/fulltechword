@@ -15,8 +15,14 @@ $ chmod -R 777 /storage /bootstrap
 
 # Admin
 
+```
 Email: admin@nht.com
 Password: admin
+```
+
+# Start development
+
+`npm run hot`
 
 # Testing
 
