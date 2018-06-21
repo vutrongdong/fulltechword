@@ -1,0 +1,34 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+label {
+    cursor: pointer;
+}
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.auth-header {
+	margin: 20px 0 20px;
+	h1 {
+		font-size: 2rem;
+		margin: 10px;
+	}
+}
+
+.btn-login-social {
+	color: #fff;
+	margin: 0 10px;
+}
+.btn-facebook {
+	background-color: #3B5998;
+}
+.btn-google {
+	background-color: #D34836;
+}
