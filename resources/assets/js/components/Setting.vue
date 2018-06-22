@@ -135,10 +135,10 @@ export default {
             this.setting = assign({}, this.setting, this.allSettings)
         },
         submitForm() {
-            this.pushSetting(this.setting)
-                .then(() => {
-                    $.Notification.autoHideNotify('success', 'top right', 'Thành công','Cập nhật dữ liệu thành công.')
-                });
+            this.pushSetting({
+                setting: this.setting,
+                cb: $.Notification.autoHideNotify('success', 'top right', 'Thành công','Cập nhật dữ liệu thành công.')
+            })
         }
     },
     mounted() {

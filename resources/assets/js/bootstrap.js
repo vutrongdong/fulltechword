@@ -49,15 +49,11 @@ window.axios.interceptors.response.use(response => {
     return response;
 }, error => {
     // If it is an HTTP error
-    if(error.response) {
-        if(error.response.status == 420) { // Session expired.
-            window.location.href = "/login";
+    if (error.response) {
+        if (error.response.status == 420) { // Session expired.
+            return window.location.href = "/login";
         }
-    } else {
-        window.alert('Lỗi không xác định, vui lòng thông báo cho administrator.');
-        console.log(error);
     }
-
     return Promise.reject(error);
 });
 

@@ -30,7 +30,7 @@ const actions = {
       commit(FETCHING_RESOURCES_DONE)
       commit(SET_ROLE, roles.data)
     } catch(err) {
-      commit(FETCHING_RESOURCES_FAIL, err.response)
+      commit(FETCHING_RESOURCES_FAIL, err)
     }
   },
 
@@ -42,12 +42,14 @@ const actions = {
       commit(FETCHING_RESOURCES_DONE)
       commit(REMOVE_ROLE, id)
     } catch(err) {
-      commit(FETCHING_RESOURCES_FAIL, err.response)
+      commit(FETCHING_RESOURCES_FAIL, err)
     }
   },
 
-  async pushRole({ commit }, role) {
+  async pushRole({ commit }, payload) {
     commit(FETCHING_RESOURCES)
+    const { role, cb } = payload || {}
+
     try {
       if (role.id) {
         await axios.put('/roles/'+role.id, role)
@@ -55,8 +57,9 @@ const actions = {
         await axios.post('/roles', role)
       }
       commit(FETCHING_RESOURCES_DONE)
+      cb && cb()
     } catch(err) {
-      commit(FETCHING_RESOURCES_FAIL, err.response)
+      commit(FETCHING_RESOURCES_FAIL, err)
     }
   }
 }

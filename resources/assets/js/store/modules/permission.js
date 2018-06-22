@@ -28,7 +28,7 @@ const actions = {
         commit(FETCHING_RESOURCES_DONE)
         commit(SET_PERMISSION, res.data)
       }, err => {
-        commit(FETCHING_RESOURCES_FAIL, err.response)
+        commit(FETCHING_RESOURCES_FAIL, err)
       })
   }
 }

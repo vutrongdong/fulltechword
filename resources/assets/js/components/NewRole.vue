@@ -91,11 +91,13 @@ export default {
         submitForm() {
             this.$validator.validate().then(result => {
                 if (result) {
-                    this.pushRole(this.role)
-                        .then(() => {
+                    this.pushRole({
+                        role: this.role,
+                        cb: () => {
                             $.Notification.autoHideNotify('success', 'top right', 'Thành công','Cập nhật dữ liệu thành công.')
                             this.$router.push('/role')
-                        });
+                        }
+                    })
                 }
             });
         }

@@ -12,6 +12,7 @@ import role from './modules/role';
 import permission from './modules/permission';
 import setting from './modules/setting';
 import city from './modules/city';
+import user from './modules/user';
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
@@ -21,7 +22,7 @@ const debug = process.env.NODE_ENV !== 'production'
  */
 const state = {
   iloading: false,
-  errors: null
+  app_errors: null
 }
 
 /**
@@ -45,7 +46,7 @@ const mutations = {
    */
   [FETCHING_RESOURCES_FAIL]: (state, err) => {
     state.iloading = false
-    state.errors = err
+    state.app_errors = err.response
   },
 
   /**
@@ -63,8 +64,8 @@ const getters = {
   loading(state) {
     return state.iloading
   },
-  errors(state) {
-    return state.errors
+  app_errors(state) {
+    return state.app_errors
   }
 }
 
@@ -74,7 +75,8 @@ export default new Vuex.Store({
         role,
         permission,
         setting,
-        city
+        city,
+        user
     },
     state,
     actions,

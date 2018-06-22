@@ -21,24 +21,24 @@ export default {
         Spinner
     },
     computed: {
-        ...mapGetters(['loading', 'errors'])
+        ...mapGetters(['loading', 'app_errors'])
     },
     methods: {
-        errorNotify() {
-            if (this.errors && this.errors.status == 422) {
+        errorNotify(n, o) {
+            if (this.app_errors && this.app_errors.status == 422) {
                 let msg = []
-                forIn(this.errors.data, (err, idx) => {
+                forIn(this.app_errors.data, (err, idx) => {
                     msg.push("&bullet; " + err[0])
                 })
                 $.Notification.autoHideNotify('error', 'top right', 'Thất bại', msg.join("<br>"))
-            } else if (this.errors && this.errors.status == 403) {
+            } else if (this.app_errors && this.app_errors.status == 403) {
                 $.Notification.autoHideNotify('error', 'top right', 'Thất bại', "Bạn không có quyền thao tác hoặc truy cập.")
                 this.$router.push('/')
             }
         }
     },
     watch: {
-        'errors': 'errorNotify'
+        'app_errors': 'errorNotify'
     }
 }
 </script>

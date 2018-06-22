@@ -17,4 +17,13 @@ class District extends Model
      * @var array
      */
     protected $fillable = ['name', 'city_id', 'slug', 'zipcode', 'order', 'status'];
+
+    /**
+     * Relationship with city
+     * @return [type]        [description]
+     */
+    public function city()
+    {
+        return $this->belongsTo(\App\Repositories\Cities\City::class);
+    }
 }

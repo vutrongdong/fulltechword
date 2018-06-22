@@ -30,7 +30,7 @@ const actions = {
       commit(FETCHING_RESOURCES_DONE)
       commit(SET_CITY, cities.data)
     } catch(err) {
-      commit(FETCHING_RESOURCES_FAIL, err.response)
+      commit(FETCHING_RESOURCES_FAIL, err)
     }
   },
 
@@ -41,7 +41,7 @@ const actions = {
       commit(FETCHING_RESOURCES_DONE)
       commit(SET_DISTRICT, districts.data)
     } catch(err) {
-      commit(FETCHING_RESOURCES_FAIL, err.response)
+      commit(FETCHING_RESOURCES_FAIL, err)
     }
   }
 }

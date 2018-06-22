@@ -22,8 +22,8 @@
                                     <div v-show="errors.has('user_name')" class="text-danger">{{ errors.first('user_name') }}</div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="text-right" for="user_mobile">Di động</label>
-                                    <input type="text" id="user_mobile" class="form-control" placeholder="Nhập số di động" v-model="user.mobile">
+                                    <label class="text-right" for="user_phone">Di động</label>
+                                    <input type="text" id="user_phone" class="form-control" placeholder="Nhập số di động" v-model="user.phone">
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_email">Email (<span class="text-danger">*</span>)</label>
@@ -38,14 +38,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_city">Tỉnh thành phố</label>
-                                    <select class="form-control" id="user_city" v-model="user.city" @change="loadDistrictByCity">
+                                    <select class="form-control" id="user_city" v-model="user.city_id" @change="loadDistrictByCity">
                                         <option value="">Chọn tỉnh thành phố</option>
                                         <option v-for="city in allCities" :value="city.id" :key="city.id">{{ city.name }}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_district">Quận huyện</label>
-                                    <select class="form-control" id="user_district" v-model="user.district">
+                                    <select class="form-control" id="user_district" v-model="user.district_id">
                                         <option value="">Chọn quận huyện</option>
                                         <option v-for="district in allDistricts" :value="district.id" :key="district.id">{{ district.name }}</option>
                                     </select>
@@ -65,9 +65,9 @@
                                     <div v-show="errors.has('user_password')" class="text-danger">{{ errors.first('user_password') }}</div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="text-right" for="user_re_password">Xác nhận mật khẩu (<span class="text-danger">*</span>)</label>
-                                    <input type="password" id="user_re_password" :class="{'form-control' : true, 'is-invalid': errors.has('user_re_password')}" placeholder="Nhập lại mật khẩu" v-model="user.re_password" name="user_re_password" v-validate="'required|min:6'" data-vv-as="xác nhận mật khẩu" ref="confirmation">
-                                    <div v-show="errors.has('user_re_password')" class="text-danger">{{ errors.first('user_re_password') }}</div>
+                                    <label class="text-right" for="user_password_confirmation">Xác nhận mật khẩu (<span class="text-danger">*</span>)</label>
+                                    <input type="password" id="user_password_confirmation" :class="{'form-control' : true, 'is-invalid': errors.has('user_password_confirmation')}" placeholder="Nhập lại mật khẩu" v-model="user.password_confirmation" name="user_password_confirmation" v-validate="'required|min:6'" data-vv-as="xác nhận mật khẩu" ref="confirmation">
+                                    <div v-show="errors.has('user_password_confirmation')" class="text-danger">{{ errors.first('user_password_confirmation') }}</div>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -103,36 +103,37 @@ export default {
     data() {
         return {
             user: {
-                gender: "",
-                dob: "",
-                city: "",
-                district: "",
+                email: "",
+                phone: "",
+                city_id: "",
+                district_id: "",
                 password: "",
-                re_password: "",
+                password_confirmation: "",
                 type: 0,
                 send_notify: true
             }
         }
     },
     methods: {
-        ...mapActions(['fetchRoles', 'fetchCities', 'fetchDistrictByCity']),
+        ...mapActions(['fetchRoles', 'fetchCities', 'fetchDistrictByCity', 'pushUser']),
 
         loadDistrictByCity() {
-            this.fetchDistrictByCity(this.user.city)
+            this.fetchDistrictByCity(this.user.city_id)
                 .then(() => {
-                    this.user.district = "";
+                    this.user.district_id = "";
                 });
         },
 
         formSubmit() {
             this.$validator.validate().then(result => {
                 if (result) {
-                    // this.pushRole(this.role)
-                    //     .then(() => {
-                    //         $.Notification.autoHideNotify('success', 'top right', 'Thành công','Cập nhật dữ liệu thành công.')
-                    //         this.$router.push('/role')
-                    //     });
-                    console.log(this.user)
+                    this.pushUser({
+                        user: this.user,
+                        notify: () => {
+                            $.Notification.autoHideNotify('success', 'top right', 'Thành công', 'Cập nhật dữ liệu thành công.')
+                            this.$router.push('/users')
+                        }
+                    })
                 }
             });
         }
