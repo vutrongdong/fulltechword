@@ -77,6 +77,22 @@ class User extends Authenticatable
     }
 
     /**
+     * Relationship with City
+     */
+    public function city()
+    {
+        return $this->belongsTo(\App\Repositories\Cities\City::class);
+    }
+
+    /**
+     * Relationship with District
+     */
+    public function district()
+    {
+        return $this->belongsTo(\App\Repositories\Districts\District::class);
+    }
+
+    /**
      * [hasAccess description]
      * @param  array   $permissions
      * @return boolean

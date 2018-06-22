@@ -12,22 +12,22 @@ let mix = require('laravel-mix');
  */
 mix.js('resources/assets/js/app.js', 'public/js')
     .scripts([
-        "storage/app/public/assets/js/detect.js",
-        "storage/app/public/assets/js/fastclick.js",
-        "storage/app/public/assets/js/jquery.slimscroll.js",
-        "storage/app/public/assets/js/jquery.blockUI.js",
-        "storage/app/public/assets/js/waves.js",
-        "storage/app/public/assets/js/wow.min.js",
-        "storage/app/public/assets/js/jquery.nicescroll.js",
-        "storage/app/public/assets/js/jquery.scrollTo.min.js",
+        "public/assets/js/detect.js",
+        "public/assets/js/fastclick.js",
+        "public/assets/js/jquery.slimscroll.js",
+        "public/assets/js/jquery.blockUI.js",
+        "public/assets/js/waves.js",
+        "public/assets/js/wow.min.js",
+        "public/assets/js/jquery.nicescroll.js",
+        "public/assets/js/jquery.scrollTo.min.js",
 
-        "storage/app/public/assets/plugins/notifyjs/js/notify.js",
-        "storage/app/public/assets/plugins/notifications/notify-metro.js",
+        "public/assets/plugins/notifyjs/js/notify.js",
+        "public/assets/plugins/notifications/notify-metro.js",
 
-        "storage/app/public/assets/plugins/moment/moment.js",
-        "storage/app/public/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
+        "public/assets/plugins/moment/moment.js",
+        "public/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js",
 
-        "storage/app/public/assets/js/jquery.core.js",
-        "storage/app/public/assets/js/jquery.app.js",
+        "public/assets/js/jquery.core.js",
+        "public/assets/js/jquery.app.js",
     ], 'public/js/site.js')
    .sass('resources/assets/sass/app.scss', 'public/css');

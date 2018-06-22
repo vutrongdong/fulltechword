@@ -23,11 +23,19 @@
                                         <th>Họ tên</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Địa chỉ</th>
+                                        <th>Vai trò</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr v-for="(user, idx) in allUsers" :key="user.id">
+                                        <td>{{ ++idx }}</td>
+                                        <td>{{ user.name }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.phone }}</td>
+                                        <td>{{ user.role }}</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -38,7 +46,16 @@
     </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
-
+    methods: {
+        ...mapActions(['fetchUsers'])
+    },
+    computed: {
+        ...mapGetters(['allUsers'])
+    },
+    mounted() {
+        this.fetchUsers()
+    }
 }
 </script>

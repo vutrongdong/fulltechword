@@ -25,8 +25,8 @@ const actions = {
     commit(FETCHING_RESOURCES)
 
     try {
-      let users = axios.get('/users')
-      commit(SET_USER, users)
+      let users = await axios.get('/users')
+      commit(SET_USER, users.data.data)
       commit(FETCHING_RESOURCES_DONE)
     } catch(err) {
       commit(FETCHING_RESOURCES_FAIL, err)

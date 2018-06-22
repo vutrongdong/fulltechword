@@ -27,4 +27,13 @@ class City extends Model
     {
         return $this->hasMany(\App\Repositories\Districts\District::class);
     }
+
+    /**
+     * Relationship with user
+     * @return [type] [description]
+     */
+    public function users()
+    {
+        return $this->hasMany(\App\User::class);
+    }
 }

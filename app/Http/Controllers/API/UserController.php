@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Users\UserRepository;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Resources\User as UserResource;
 
 class UserController extends Controller
 {
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return $this->model->getAll();
+        return UserResource::collection($this->model->getByQuery());
     }
 
     /**
@@ -43,6 +44,8 @@ class UserController extends Controller
         if ($role = (array) $request->input('role')) {
             $user->roles()->attach($role);
         }
+
+        return new UserCollection($user);
     }
 
     /**
