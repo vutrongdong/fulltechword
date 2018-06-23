@@ -33,8 +33,11 @@
                                         <td>{{ user.name }}</td>
                                         <td>{{ user.email }}</td>
                                         <td>{{ user.phone }}</td>
-                                        <td>{{ user.role }}</td>
-                                        <td>&nbsp;</td>
+                                        <td>{{ roleList(user.roles) }}</td>
+                                        <td>
+                                            <router-link class="btn btn-link btn-action text-muted" :to="{name: 'user.edit', params: {id: user.id}}"><i class="fas fa-pencil-alt"></i></router-link>
+                                            <a class="btn btn-link btn-action text-danger" @click="delUser(user.id)"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -47,9 +50,20 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { map } from 'lodash'
+
 export default {
     methods: {
-        ...mapActions(['fetchUsers'])
+        ...mapActions(['fetchUsers']),
+
+        roleList(roles) {
+            let _roleList = map(roles, r => r.name)
+            return _roleList.join(", ")
+        },
+
+        delUser(uID) {
+
+        }
     },
     computed: {
         ...mapGetters(['allUsers'])

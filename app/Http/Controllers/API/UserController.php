@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Users\UserRepository;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\User as UserResource;
 
 class UserController extends Controller
@@ -45,7 +46,7 @@ class UserController extends Controller
             $user->roles()->attach($role);
         }
 
-        return new UserCollection($user);
+        return new UserResource($user);
     }
 
     /**
@@ -56,19 +57,22 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = $this->model->getById($id, true);
+        return new UserResource($user);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUserRequest  $request
+     * @param  \App\Http\Requests\UpdateUserRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUserRequest $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $request->validated();
+        $user = $this->model->update($id, $request->all());
+        return new UserResource($user);
     }
 
     /**

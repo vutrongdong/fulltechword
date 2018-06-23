@@ -3,13 +3,15 @@ import {
   FETCHING_RESOURCES_DONE,
   FETCHING_RESOURCES_FAIL,
   SET_USER,
+  SET_DETAIL_USER
 } from '../mutation-types'
 
 /**
  * User state
  */
 const state = {
-  users: []
+  users: [],
+  user: {}
 }
 
 /**
@@ -53,6 +55,21 @@ const actions = {
     } catch (err) {
       commit(FETCHING_RESOURCES_FAIL, err)
     }
+  },
+
+  async getUser({ commit }, payload) {
+    const { id, cb } = payload || {}
+
+    if (id) {
+      try {
+        let user = await axios.get('/users/'+id)
+        commit(SET_DETAIL_USER, user.data.data)
+        commit(FETCHING_RESOURCES_DONE)
+        cb && cb(user.data.data)
+      } catch(err) {
+        commit(FETCHING_RESOURCES_FAIL, err)
+      }
+    }
   }
 }
 
@@ -66,6 +83,10 @@ const mutations = {
    */
   [SET_USER] (state, users) {
     state.users = users
+  },
+
+  [SET_DETAIL_USER] (state, user) {
+    state.user = user
   }
 }
 

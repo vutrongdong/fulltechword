@@ -71,6 +71,15 @@ class UserTest extends TestCase
     }
 
     /** @test */
+    public function it_can_show_null_if_not_exist_user()
+    {
+        $userRepository = \App::make(UserRepository::class);
+        $_user = $userRepository->getById(99999);
+
+        $this->assertEquals(null, $_user);
+    }
+
+    /** @test */
     public function it_can_show_an_user_in_trash()
     {
         $user = factory(User::class)->create();
@@ -104,7 +113,7 @@ class UserTest extends TestCase
         $data = [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'password' => bcrypt('123')
+            'password' => 123
         ];
 
         $userRepository = \App::make(UserRepository::class);
@@ -113,7 +122,7 @@ class UserTest extends TestCase
         $this->assertInstanceOf(User::class, $user);
         $this->assertEquals($user->name, $data['name']);
         $this->assertEquals($user->email, $data['email']);
-        $this->assertEquals($user->password, $data['password']);
+        $this->assertTrue(\Hash::check($data['password'], $user->password));
     }
 
     /** @test */

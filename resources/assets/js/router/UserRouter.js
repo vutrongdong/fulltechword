@@ -11,5 +11,10 @@ export default [
         path: '/users/create',
         name: 'user.create',
         component: NewUser
+    },
+    {
+        path: '/users/:id/edit',
+        name: 'user.edit',
+        component: NewUser
     }
 ];

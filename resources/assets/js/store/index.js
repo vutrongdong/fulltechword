@@ -8,11 +8,7 @@ import {
     FETCHING_RESOURCES_FAIL
 } from './mutation-types';
 
-import role from './modules/role';
-import permission from './modules/permission';
-import setting from './modules/setting';
-import city from './modules/city';
-import user from './modules/user';
+import * as modules from './modules';
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
@@ -71,13 +67,7 @@ const getters = {
 
 export default new Vuex.Store({
     strict: debug,
-    modules: {
-        role,
-        permission,
-        setting,
-        city,
-        user
-    },
+    modules: {...modules},
     state,
     actions,
     mutations,

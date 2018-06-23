@@ -20,7 +20,7 @@ Route::middleware('auth:api')->group(function() {
         return $request->user();
     });
     Route::apiResource('/roles', 'RoleController');
-    Route::apiResource('/users', 'UserController');
+    Route::apiResource('/users', 'UserController')->middleware('can:manage-user, App\User');;
     Route::get('/permissions', 'PermissionController@index');
     Route::get('/setting', 'SettingController@show');
     Route::put('/setting', 'SettingController@update')->middleware('can:config-site, App\User');

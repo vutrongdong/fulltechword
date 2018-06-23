@@ -1,10 +1,11 @@
-export const FETCHING_RESOURCES      = 'FETCHING_RESOURCES';
-export const FETCHING_RESOURCES_DONE = 'FETCHING_RESOURCES_DONE';
-export const FETCHING_RESOURCES_FAIL = 'FETCHING_RESOURCES_FAIL';
-export const SET_ROLE                = 'SET_ROLE';
-export const REMOVE_ROLE             = 'REMOVE_ROLE';
-export const SET_PERMISSION          = 'SET_PERMISSION';
+export const FETCHING_RESOURCES      = 'FETCHING_RESOURCES'
+export const FETCHING_RESOURCES_DONE = 'FETCHING_RESOURCES_DONE'
+export const FETCHING_RESOURCES_FAIL = 'FETCHING_RESOURCES_FAIL'
+export const SET_ROLE                = 'SET_ROLE'
+export const REMOVE_ROLE             = 'REMOVE_ROLE'
+export const SET_PERMISSION          = 'SET_PERMISSION'
 export const SET_SETTING             = 'SET_SETTING'
 export const SET_CITY                = 'SET_CITY'
 export const SET_DISTRICT            = 'SET_DISTRICT'
 export const SET_USER                = 'SET_USER'
+export const SET_DETAIL_USER         = 'SET_DETAIL_USER'

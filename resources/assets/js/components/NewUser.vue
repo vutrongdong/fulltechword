@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-12">
             <h4 class="page-title">
-                Create a new user
+                {{ title }}
             </h4>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><router-link to="/">Bảng điều khiển</router-link></li>
                 <li class="breadcrumb-item"><router-link to="/users">User management</router-link></li>
-                <li class="breadcrumb-item active">Create a new user</li>
+                <li class="breadcrumb-item active">{{ title }}</li>
             </ol>
             <p class="clearfix"></p>
             <div class="card">
@@ -61,12 +61,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_password">Mật khẩu (<span class="text-danger">*</span>)</label>
-                                    <input type="password" id="user_password" :class="{'form-control' : true, 'is-invalid': errors.has('user_password')}" placeholder="Nhập mật khẩu" v-model="user.password" name="user_password" v-validate="'required|min:6|confirmed:confirmation'" data-vv-as="mật khẩu">
+                                    <input type="password" id="user_password" :class="{'form-control' : true, 'is-invalid': errors.has('user_password')}" placeholder="Nhập mật khẩu" v-model="user.password" name="user_password" v-validate="{'required|min:6|confirmed:confirmation': (formType == 'create' ? true : false)}" data-vv-as="mật khẩu">
                                     <div v-show="errors.has('user_password')" class="text-danger">{{ errors.first('user_password') }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_password_confirmation">Xác nhận mật khẩu (<span class="text-danger">*</span>)</label>
-                                    <input type="password" id="user_password_confirmation" :class="{'form-control' : true, 'is-invalid': errors.has('user_password_confirmation')}" placeholder="Nhập lại mật khẩu" v-model="user.password_confirmation" name="user_password_confirmation" v-validate="'required|min:6'" data-vv-as="xác nhận mật khẩu" ref="confirmation">
+                                    <input type="password" id="user_password_confirmation" :class="{'form-control' : true, 'is-invalid': errors.has('user_password_confirmation')}" placeholder="Nhập lại mật khẩu" v-model="user.password_confirmation" name="user_password_confirmation" v-validate="{'required|min:6': (formType == 'create' ? true : false)}" data-vv-as="xác nhận mật khẩu" ref="confirmation">
                                     <div v-show="errors.has('user_password_confirmation')" class="text-danger">{{ errors.first('user_password_confirmation') }}</div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                     <label class="custom-control-label" for="user_send_notify">Gửi email thông báo cho tài khoản này.</label>
                                 </div>
                                 <p class="clearfix"></p>
-                                <button class="btn btn-default" type="submit">Tạo tài khoản</button>
+                                <button class="btn btn-default" type="submit">{{ title }}</button>
                                 <router-link to="/users" class="btn btn-link">Trở lại</router-link>
                             </div>
                         </div>
@@ -99,9 +99,13 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { assign } from 'lodash'
+
 export default {
     data() {
         return {
+            title: 'Create a new user',
+            formType: 'create',
             user: {
                 email: "",
                 phone: "",
@@ -109,19 +113,39 @@ export default {
                 district_id: "",
                 password: "",
                 password_confirmation: "",
-                type: 0,
                 send_notify: true
             }
         }
     },
     methods: {
-        ...mapActions(['fetchRoles', 'fetchCities', 'fetchDistrictByCity', 'pushUser']),
+        ...mapActions(['fetchRoles', 'fetchCities', 'fetchDistrictByCity', 'pushUser', 'getUser']),
 
-        loadDistrictByCity() {
+        loadDistrictByCity(dID) {
             this.fetchDistrictByCity(this.user.city_id)
                 .then(() => {
-                    this.user.district_id = "";
+                    this.user.district_id = dID || "";
                 });
+        },
+
+        loadUser() {
+            let uID = this.$route.params.id || null;
+            this.getUser({
+                id: uID,
+                cb: this.fillUser
+            });
+
+            this.title = uID == null ? 'Create a new user' : 'Edit user'
+            this.formType = uID == null ? 'create' : 'edit'
+        },
+
+        fillUser(user) {
+            this.user = assign({}, this.user, user, {
+                    district_id: user.district.id,
+                    city_id: user.city.id,
+                    role: user.roles[0].id,
+                    send_notify: false
+            })
+            this.loadDistrictByCity(this.user.district_id)
         },
 
         formSubmit() {
@@ -129,7 +153,7 @@ export default {
                 if (result) {
                     this.pushUser({
                         user: this.user,
-                        notify: () => {
+                        cb: () => {
                             $.Notification.autoHideNotify('success', 'top right', 'Thành công', 'Cập nhật dữ liệu thành công.')
                             this.$router.push('/users')
                         }
@@ -142,7 +166,7 @@ export default {
         ...mapGetters(['allRoles', 'allCities', 'allDistricts'])
     },
     mounted() {
-        this.fetchRoles();
+        this.fetchRoles().then(() => this.loadUser());
         this.fetchCities();
     }
 }
