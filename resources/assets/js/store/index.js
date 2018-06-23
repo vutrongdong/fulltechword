@@ -8,7 +8,7 @@ import {
     FETCHING_RESOURCES_FAIL
 } from './mutation-types';
 
-import * as modules from './modules';
+import * as modules from './modules/';
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
