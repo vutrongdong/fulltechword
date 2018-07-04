@@ -30,22 +30,30 @@ abstract class BaseRepository implements EntityInterface
      */
     public function getByQuery($params = [], $size = 25)
     {
-        if (empty($params)) {
-            return $this->model->paginate($size);
-        }
-
+        $sort = array_get($params, 'sort', 'created_at:-1');
+        $params['sort'] = $sort;
+        $lModel = $this->model;
         $params = array_except($params, ['page', 'limit']);
-        $params['sort'] = array_get($params, 'sort', 'created_at:-1');
-
-        $refClass = new \ReflectionClass($this->model);
-        foreach ($params as $key => $value) {
-            $filter = studly_case($key);
-            if ($refClass->hasMethod("scope{$filter}")) {
-                $filter = lcfirst($filter);
-                $this->model = $this->model->$filter($value);
+        if (count($params)) {
+            $reflection = new \ReflectionClass($lModel);
+            foreach ($params as $funcName => $funcParams) {
+                $funcName = \Illuminate\Support\Str::studly($funcName);
+                if ($reflection->hasMethod('scope' . $funcName)) {
+                    $funcName = lcfirst($funcName);
+                    $lModel = $lModel->$funcName($funcParams);
+                }
             }
         }
-        return $this->model->paginate($size);
+        switch ($size) {
+            case -1:
+                return $lModel->get();
+                break;
+            case 0:
+                return $lModel->first();
+            default:
+                return $lModel->paginate($size);
+                break;
+        }
     }
 
     /**

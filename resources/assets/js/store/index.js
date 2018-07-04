@@ -8,7 +8,9 @@ import {
     FETCHING_RESOURCES_FAIL
 } from './mutation-types';
 
-import * as modules from './modules/';
+import * as modules from './modules';
+import tag from './modules/tag'
+console.log(modules)
 
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
@@ -67,7 +69,10 @@ const getters = {
 
 export default new Vuex.Store({
     strict: debug,
-    modules: {...modules},
+    modules: {
+        ...modules,
+        ...tag
+    },
     state,
     actions,
     mutations,

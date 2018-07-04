@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 use Laravel\Passport\Passport;
-use App\Repositories\Roles\Role;
-use App\Policies\RolePolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -17,7 +15,10 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Role::class => RolePolicy::class,
+        \App\Repositories\Roles\Role::class          => \App\Policies\RolePolicy::class,
+        \App\Repositories\Categories\Category::class => \App\Policies\CategoryPolicy::class,
+        \App\Repositories\Blogs\Blog::class          => \App\Policies\BlogPolicy::class,
+        \App\Repositories\Tags\Tag::class            => \App\Policies\TagPolicy::class,
     ];
 
     /**
@@ -51,9 +52,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     private function registerGates()
     {
-        Gate::before(function($user, $ability) {
-            if ($user->isSuperAdmin())
+        Gate::before(function ($user, $ability) {
+            if ($user->isSuperAdmin()) {
                 return true;
+            }
         });
 
         Gate::define('access-admin', function ($user) {
@@ -79,6 +81,9 @@ class AuthServiceProvider extends ServiceProvider
          * Gate::define('roles.update', 'App\Policies\RolePolicy@update');
          * Gate::define('roles.delete', 'App\Policies\RolePolicy@delete');
          */
-        Gate::resource('roles', RolePolicy::class);
+        Gate::resource('roles', \App\Policies\RolePolicy::class);
+        Gate::resource('category', \App\Policies\CategoryPolicy::class);
+        Gate::resource('blog', \App\Policies\BlogPolicy::class);
+        Gate::resource('tag', \App\Policies\TagPolicy::class);
     }
 }

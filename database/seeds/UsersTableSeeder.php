@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         $admin = factory(App\User::class)->create([
             'name' => 'Administrator',
             'email' => 'admin@nht.com',
-            'password' => bcrypt('admin')
+            'password' => 'admin'
         ]);
 
         $adminRole = factory(App\Repositories\Roles\Role::class)->create([

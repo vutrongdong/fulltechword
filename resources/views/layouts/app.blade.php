@@ -93,6 +93,27 @@
                         </li>
 
                         <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect"><i class="ti-rss-alt"></i> <span> {{ __('Bài viết') }} </span> <span class="menu-arrow"></span> </a>
+                            <ul class="list-unstyled">
+                                @can('category.view', App\User::class)
+                                <li>
+                                    <router-link to="/categories">{{ __('Danh mục') }}</router-link>
+                                </li>
+                                @endcan
+                                @can('blog.view', App\User::class)
+                                <li>
+                                    <router-link to="/blogs">{{ __('Bài viết') }}</router-link>
+                                </li>
+                                @endcan
+                                @can('tag.view', App\User::class)
+                                <li>
+                                    <router-link to="/tags">{{ __('Tag') }}</router-link>
+                                </li>
+                                @endcan
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect"><i class="ti-settings"></i> <span> {{ __('Cài đặt') }} </span> <span class="menu-arrow"></span> </a>
                             <ul class="list-unstyled">
                                 @can('manage-user', App\User::class)
