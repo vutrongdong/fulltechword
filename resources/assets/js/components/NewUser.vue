@@ -61,12 +61,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_password">Mật khẩu (<span class="text-danger">*</span>)</label>
-                                    <input type="password" id="user_password" :class="{'form-control' : true, 'is-invalid': errors.has('user_password')}" placeholder="Nhập mật khẩu" v-model="user.password" name="user_password" v-validate="{'required|min:6|confirmed:confirmation': (formType == 'create' ? true : false)}" data-vv-as="mật khẩu">
+                                    <input type="password" id="user_password" :class="{'form-control' : true, 'is-invalid': errors.has('user_password')}" placeholder="Nhập mật khẩu" v-model="user.password" name="user_password" v-validate="valid_password" data-vv-as="mật khẩu">
                                     <div v-show="errors.has('user_password')" class="text-danger">{{ errors.first('user_password') }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label class="text-right" for="user_password_confirmation">Xác nhận mật khẩu (<span class="text-danger">*</span>)</label>
-                                    <input type="password" id="user_password_confirmation" :class="{'form-control' : true, 'is-invalid': errors.has('user_password_confirmation')}" placeholder="Nhập lại mật khẩu" v-model="user.password_confirmation" name="user_password_confirmation" v-validate="{'required|min:6': (formType == 'create' ? true : false)}" data-vv-as="xác nhận mật khẩu" ref="confirmation">
+                                    <input type="password" id="user_password_confirmation" :class="{'form-control' : true, 'is-invalid': errors.has('user_password_confirmation')}" placeholder="Nhập lại mật khẩu" v-model="user.password_confirmation" name="user_password_confirmation" v-validate="valid_repassword" data-vv-as="xác nhận mật khẩu" ref="confirmation">
                                     <div v-show="errors.has('user_password_confirmation')" class="text-danger">{{ errors.first('user_password_confirmation') }}</div>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@ export default {
     data() {
         return {
             title: 'Create a new user',
-            formType: 'create',
+            formType: true,
             user: {
                 email: "",
                 phone: "",
@@ -135,15 +135,15 @@ export default {
             });
 
             this.title = uID == null ? 'Create a new user' : 'Edit user'
-            this.formType = uID == null ? 'create' : 'edit'
+            this.formType = uID == null ? true : false //
         },
 
         fillUser(user) {
             this.user = assign({}, this.user, user, {
-                    district_id: user.district.id,
-                    city_id: user.city.id,
-                    role: user.roles[0].id,
-                    send_notify: false
+                district_id: user.district.id,
+                city_id: user.city.id,
+                role: user.roles.length > 0 ? user.roles[0].id : 0,
+                send_notify: false
             })
             this.loadDistrictByCity(this.user.district_id)
         },
@@ -163,7 +163,13 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['allRoles', 'allCities', 'allDistricts'])
+        ...mapGetters(['allRoles', 'allCities', 'allDistricts']),
+        valid_password() {
+            return this.formType ? 'required|min:6|confirmed:confirmation' : ''
+        },
+        valid_repassword() {
+            return this.formType ? 'required|min:6' : ''
+        }
     },
     mounted() {
         this.fetchRoles().then(() => this.loadUser());
