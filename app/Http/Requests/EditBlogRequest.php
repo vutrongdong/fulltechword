@@ -16,7 +16,9 @@ class EditBlogRequest extends ApiRequest
             'teaser'      => 'required|min:10|max:255',
             'content'     => 'required|min:30',
             'slug'        => 'required|unique:blogs,slug,' . $this->input('id'),
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'tags'        => 'nullable|array',
+            'tags.*.id'   => 'required|exists:tags,id',
         ];
     }
 
@@ -36,7 +38,9 @@ class EditBlogRequest extends ApiRequest
             'slug.required'        => 'slug không được để trống.',
             'slug.unique'          => 'slug đã tồn tại.',
             'category_id.required' => 'Vui lòng chọn một danh mục',
-            'category_id.exists'   => 'Danh mục không tồn tại trên hệ thống'
+            'category_id.exists'   => 'Danh mục không tồn tại trên hệ thống',
+            'tags.array'           => 'Tags không đúng định dạng',
+            'tags.*.id.exists'     => 'Tag không tồn tại trên hệ thống'
         ];
     }
 }

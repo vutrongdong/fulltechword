@@ -26,18 +26,14 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Họ tên</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
+                                        <th>Tên</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="(tag, idx) in allTags" :key="tag.id">
                                         <td>{{ ++idx }}</td>
-                                        <td>{{ tag.name }}</td>
-                                        <td>{{ tag.email }}</td>
-                                        <td>{{ tag.phone }}</td>
+                                        <td><span :style="{'background-color': tag.color}" class="label label-defautl">{{ tag.name }}</span></td>
                                         <td>
                                             <router-link class="btn btn-link btn-action text-muted" :to="{name: 'tag.edit', params: {id: tag.id}}"><i class="fas fa-pencil-alt"></i></router-link>
                                             <a class="btn btn-link btn-action text-danger" @click="deleteTag(tag.id)"><i class="fas fa-trash-alt"></i></a>

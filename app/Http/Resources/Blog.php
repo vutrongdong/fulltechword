@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Tag as TagResource;
 
 class Blog extends JsonResource
 {
@@ -19,12 +20,14 @@ class Blog extends JsonResource
             'title'       => $this->title,
             'slug'        => $this->slug,
             'image'       => $this->image,
+            'image_path'  => $this->getImage(),
             'teaser'      => $this->teaser,
             'content'     => $this->content,
             'active'      => $this->active,
             'hot'         => $this->hot,
             'category_id' => $this->category_id,
             'author_id'   => $this->author_id,
+            'tags'        => TagResource::collection($this->tags)
         ];
     }
 }

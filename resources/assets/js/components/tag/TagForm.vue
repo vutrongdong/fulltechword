@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label class="text-right" for="color">Màu</label>
-                    <color-picker :color="tag.color ? tag.color : 'rgba(255, 255, 255, 0)'" v-model="tag.color" />
+                    <color-picker :color="tag.color ? tag.color : '#9E9E9E'" v-model="tag.color" />
                 </div>
             </div>
         </div>
@@ -108,9 +108,14 @@ export default {
         formSubmit () {
             this.$validator.validate().then(result => {
                 if (result) {
-                    let tag = Object.assign(this.tag)
-                    tag.parent_id = tag.parent_id !== null ? tag.parent_id : 0
+                    let tag = Object.assign({}, this.tag)
                     this.$emit('submit', tag)
+                    setTimeout(() => {
+                        this.tag = Object.assign({}, this.tag, this.dataTag)
+                        if (this.type === 'modal') {
+                            this.$validator.reset()
+                        }
+                    }, 300)
                 } else {
                     $.Notification.autoHideNotify('warning', 'top right', 'Cảnh báo', 'Vui lòng kiểm tra thông tin cần nhập')
                 }

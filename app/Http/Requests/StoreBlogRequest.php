@@ -12,11 +12,13 @@ class StoreBlogRequest extends ApiRequest
     public function rules()
     {
         return [
-            'title'        => 'required',
+            'title'       => 'required',
             'teaser'      => 'required|min:10|max:255',
             'content'     => 'required|min:30',
             'slug'        => 'required|unique:blogs,slug',
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'tags'        => 'nullable|array',
+            'tags.*.id'   => 'required|exists:tags,id',
         ];
     }
 
@@ -27,7 +29,7 @@ class StoreBlogRequest extends ApiRequest
     public function messages()
     {
         return [
-            'title.required'        => 'Tiêu đề không được để trống.',
+            'title.required'       => 'Tiêu đề không được để trống.',
             'teaser.required'      => 'Giới thiệu ngắn không được để trống.',
             'teaser.min'           => 'Giới thiệu ngắn không được ít hơn :min ký tự.',
             'teaser.max'           => 'Giới thiệu ngắn không được lớn hơn :max ký tự.',
@@ -36,7 +38,9 @@ class StoreBlogRequest extends ApiRequest
             'slug.required'        => 'slug không được để trống.',
             'slug.unique'          => 'slug đã tồn tại.',
             'category_id.required' => 'Vui lòng chọn một danh mục',
-            'category_id.exists'   => 'Danh mục không tồn tại trên hệ thống'
+            'category_id.exists'   => 'Danh mục không tồn tại trên hệ thống',
+            'tags.array'           => 'Tags không đúng định dạng',
+            'tags.*.id.exists'     => 'Tag không tồn tại trên hệ thống'
         ];
     }
 }

@@ -20,7 +20,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-import { debounce } from 'lodash'
+import { cloneDeep } from 'lodash'
 import BlogForm from './BlogForm'
 export default {
     components: {
@@ -47,7 +47,7 @@ export default {
         this.getBlog({
             id: this.$route.params.id,
             cb: (blog) => {
-                this.blog = Object.assign({}, this.blog, blog)
+                this.blog = Object.assign({}, this.blog, cloneDeep(blog))
             }
         })
     }

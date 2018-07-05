@@ -44,6 +44,11 @@ class Blog extends Entity
         'author_id',
     ];
 
+    public function getImage()
+    {
+        return $this->image ? asset($this->imgPath . '/' . $this->image) : null;
+    }
+
     public function scopeQ($query, $value = null)
     {
         if ($value) {
@@ -52,5 +57,10 @@ class Blog extends Entity
                         ->orWhere('content', 'like', "%{$value}%");
         }
         return $query;
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(\App\Repositories\Tags\Tag::class, 'blog_tag');
     }
 }
