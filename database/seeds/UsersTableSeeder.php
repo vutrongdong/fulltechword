@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder
     {
         // Super Admin
         $admin = factory(App\User::class)->create([
-            'name' => 'Administrator',
-            'email' => 'admin@nht.com',
+            'name' => 'SuperAdmin',
+            'email' => 'admin@fulltechword.com',
             'password' => 'admin'
         ]);
 
