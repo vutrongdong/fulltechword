@@ -27,6 +27,8 @@ mix.autoload({
         "public/assets/js/jquery.nicescroll.js",
         "public/assets/js/jquery.scrollTo.min.js",
 
+        "public/assets/plugins/sweet-alert2/sweetalert2.min.js",
+
         "public/assets/plugins/notifyjs/js/notify.js",
         "public/assets/plugins/notifications/notify-metro.js",
 

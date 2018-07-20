@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/icons.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/sweet-alert2/sweetalert2.min.css">
     <script src="/assets/js/modernizr.min.js"></script>
 </head>
 <body class="fixed-left">

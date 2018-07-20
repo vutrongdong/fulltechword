@@ -31,7 +31,7 @@
         "editor": "{{ $blog->author ? $blog->author->name : 'anonymous' }}",
         "genre": "{{ url()->full() }}",
         "keywords": "seo sales b2b",
-        "wordcount": "1120",
+        "wordcount": "{{ strlen(strip_tags($blog->content)) }}",
         "publisher": "{{ $blog->author ? $blog->author->name : 'anonymous' }}",
         "url": "{{ url()->full() }}",
         "datePublished": "{{ $blog->created_at }}",
@@ -46,4 +46,12 @@
     }
     </script>
 
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/plugins/codesample/css/prism.css') }}">
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/plugins/codesample/js/prism.js') }}" type="text/javascript" charset="utf-8"></script>
 @endsection

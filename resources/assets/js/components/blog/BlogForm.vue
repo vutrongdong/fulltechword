@@ -72,6 +72,8 @@
                             id="content"
                             :plugins="plugins"
                             v-model="blog.content"
+                            toolbar1="formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat | codesample"
+                            toolbar2=""
                             :other_options="{ height: '300px', images_upload_handler: handleImageAdded }"
                             @editorInit="e => e.setContent(blog.content ? blog.content : '')"
                         ></tinymce>
@@ -170,7 +172,7 @@ export default {
             plugins: [
                 "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
                 "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                "save table contextmenu directionality emoticons template paste textcolor"
+                "save table contextmenu directionality emoticons template paste textcolor codesample"
             ],
             newTagForm: false
         }

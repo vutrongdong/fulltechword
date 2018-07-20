@@ -4,9 +4,28 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="keywords" content=""/>
+        <meta name="description" content="Goship là cách đơn giản nhất để ship hàng nhanh đi toàn quốc"/>
+        <meta name="author" content="{{config('app.name', 'FullTechWord')}}"/>
+
+        <link rel="canonical" href="" />
+        <meta itemprop="name" content="{{config('app.name', 'FullTechWord')}}"">
+        <meta itemprop="description" content="Goship là cách đơn giản nhất để ship hàng nhanh đi toàn quốc">
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:url" content="https://goship.io/blogs" />
+        <meta name="twitter:card" content="{{config('app.name', 'FullTechWord')}}"">
+        <meta name="twitter:site" content=" ">
+        <meta name="twitter:title" content="">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:creator" content=" ">
 
         <title>{{ config('app.name', 'FullTechWord') }}</title>
-
+        <link rel="shortcut icon" href="/images/favicon.png" />
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 
         <link rel="stylesheet" href="{{asset('css/frontend/v1/font-awesome.min.css')}}">
