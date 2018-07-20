@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace FTW\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\Tags\TagRepository;
-use App\Http\Requests\StoreTagRequest;
-use App\Http\Requests\EditTagRequest;
-use App\Http\Resources\Tag as TagResource;
+use FTW\Http\Controllers\Controller;
+use FTW\Repositories\Tags\TagRepository;
+use FTW\Http\Requests\StoreTagRequest;
+use FTW\Http\Requests\EditTagRequest;
+use FTW\Http\Resources\Tag as TagResource;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -46,7 +46,7 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreTagRequest $request
+     * @param  \FTW\Http\Requests\StoreTagRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTagRequest $request)
@@ -59,7 +59,7 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\EditTagRequest $request
+     * @param  \FTW\Http\Requests\EditTagRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

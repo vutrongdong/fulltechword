@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Settings;
+namespace FTW\Repositories\Settings;
 
-use App\Repositories\BaseRepository;
+use FTW\Repositories\BaseRepository;
 
 class SettingRepository extends BaseRepository
 {

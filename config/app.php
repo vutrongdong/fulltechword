@@ -155,11 +155,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        FTW\Providers\AppServiceProvider::class,
+        FTW\Providers\AuthServiceProvider::class,
+        // FTW\Providers\BroadcastServiceProvider::class,
+        FTW\Providers\EventServiceProvider::class,
+        FTW\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
     ],

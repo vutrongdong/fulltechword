@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Repositories\Roles\Role::class, function (Faker $faker) {
+$factory->define(FTW\Repositories\Roles\Role::class, function (Faker $faker) {
     return [
     	'name' => $faker->name,
         'slug' => $faker->slug,

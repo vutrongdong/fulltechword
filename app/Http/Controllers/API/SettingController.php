@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace FTW\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Repositories\Settings\SettingRepository;
+use FTW\Http\Controllers\Controller;
+use FTW\Repositories\Settings\SettingRepository;
 
 class SettingController extends Controller
 {

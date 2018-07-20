@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Resources;
+namespace FTW\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\City as CityResource;
+use FTW\Http\Resources\City as CityResource;
 
 class District extends JsonResource
 {

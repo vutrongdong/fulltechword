@@ -10,7 +10,13 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.js('resources/assets/js/app.js', 'public/js')
+
+mix.autoload({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
+    })
+    .js('resources/assets/js/app.js', 'public/js')
     .scripts([
         "public/assets/js/detect.js",
         "public/assets/js/fastclick.js",
@@ -30,4 +36,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
         "public/assets/js/jquery.core.js",
         "public/assets/js/jquery.app.js",
     ], 'public/js/site.js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    .js('resources/assets/js/frontend/v1/site.js', 'public/js/frontend/v1/site.js')
+    .scripts([
+        'public/js/frontend/v1/site.js'
+    ], 'public/js/frontend/v1/site.js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .sass('resources/assets/sass/frontend/v1.scss', 'public/css/frontend/v1/site.css');

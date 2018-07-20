@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace FTW\Services;
 
 use Laravel\Socialite\Contracts\User as ProviderUser;
-use App\Repositories\LinkedSocialAccounts\LinkedSocialAccountRepository;
-use App\Repositories\Users\UserRepository;
+use FTW\Repositories\LinkedSocialAccounts\LinkedSocialAccountRepository;
+use FTW\Repositories\Users\UserRepository;
 
 class LinkedSocialAccountService
 {

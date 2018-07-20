@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Tags;
+namespace FTW\Repositories\Tags;
 
-use App\Repositories\Entity;
+use FTW\Repositories\Entity;
 
 class Tag extends Entity
 {

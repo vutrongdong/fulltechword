@@ -23,6 +23,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "@cmyee/pushy": "^1.1.2",
         "vee-validate": "^2.1.0-beta.2",
         "vue-color": "^2.4.6",
         "vue-router": "^3.0.1",

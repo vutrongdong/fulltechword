@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace FTW\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\Roles\RoleRepository;
-use App\Http\Requests\StoreRoleRequest;
+use FTW\Http\Controllers\Controller;
+use FTW\Repositories\Roles\RoleRepository;
+use FTW\Http\Requests\StoreRoleRequest;
 
 class RoleController extends Controller
 {
@@ -24,19 +24,19 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $this->authorize('roles.view', App\User::class);
+        $this->authorize('roles.view', FTW\User::class);
         return $this->model->getAll();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRoleRequest $request
+     * @param  \FTW\Http\Requests\StoreRoleRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRoleRequest $request)
     {
-        $this->authorize('roles.create', App\User::class);
+        $this->authorize('roles.create', FTW\User::class);
         $request->validated();
         return $this->model->store($request->all());
     }
@@ -44,13 +44,13 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StoreRoleRequest $request
+     * @param  \FTW\Http\Requests\StoreRoleRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(StoreRoleRequest $request, $id)
     {
-        $this->authorize('roles.update', App\User::class);
+        $this->authorize('roles.update', FTW\User::class);
         $request->validated();
         return $this->model->update($id, $request->all());
     }
@@ -63,7 +63,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('roles.delete', App\User::class);
+        $this->authorize('roles.delete', FTW\User::class);
         $rs = $this->model->delete($id);
         return response()->json([], is_null($rs) ? 422 : 200);
     }

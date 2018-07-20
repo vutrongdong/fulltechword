@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Roles;
+namespace FTW\Repositories\Roles;
 
-use App\Repositories\BaseRepository;
+use FTW\Repositories\BaseRepository;
 
 class RoleRepository extends BaseRepository
 {

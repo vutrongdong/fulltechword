@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Resources;
+namespace FTW\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Tag as TagResource;
+use FTW\Http\Resources\Tag as TagResource;
 
 class Blog extends JsonResource
 {

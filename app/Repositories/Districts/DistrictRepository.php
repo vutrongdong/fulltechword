@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Districts;
+namespace FTW\Repositories\Districts;
 
-use App\Repositories\BaseRepository;
+use FTW\Repositories\BaseRepository;
 
 class DistrictRepository extends BaseRepository
 {

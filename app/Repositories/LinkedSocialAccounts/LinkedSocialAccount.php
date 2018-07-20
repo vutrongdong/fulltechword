@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\LinkedSocialAccounts;
+namespace FTW\Repositories\LinkedSocialAccounts;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +21,6 @@ class LinkedSocialAccount extends Model
      */
     public function user()
 	{
-	    return $this->belongsTo('App\User');
+	    return $this->belongsTo('FTW\User');
 	}
 }

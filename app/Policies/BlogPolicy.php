@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace FTW\Policies;
 
-use App\User;
-use App\Repositories\Blogs\Blog;
+use FTW\User;
+use FTW\Repositories\Blogs\Blog;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class BlogPolicy
@@ -13,8 +13,8 @@ class BlogPolicy
     /**
      * Determine whether the user can view the blog.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Blog  $blog
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Blog  $blog
      * @return mixed
      */
     public function view(User $user, Blog $blog = null)
@@ -25,7 +25,7 @@ class BlogPolicy
     /**
      * Determine whether the user can create blog.
      *
-     * @param  \App\User  $user
+     * @param  \FTW\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -36,8 +36,8 @@ class BlogPolicy
     /**
      * Determine whether the user can update the blog.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Blog  $blog
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Blog  $blog
      * @return mixed
      */
     public function update(User $user, Blog $blog)
@@ -48,8 +48,8 @@ class BlogPolicy
     /**
      * Determine whether the user can delete the blog.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Blog  $blog
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Blog  $blog
      * @return mixed
      */
     public function delete(User $user, Blog $blog)

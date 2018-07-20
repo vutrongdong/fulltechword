@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace FTW;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Notifications\ResetPasswordNotification;
+use FTW\Notifications\ResetPasswordNotification;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
@@ -65,7 +65,7 @@ class User extends Authenticatable
      */
     public function accounts()
     {
-        return $this->hasMany('App\LinkedSocialAccount');
+        return $this->hasMany('FTW\LinkedSocialAccount');
     }
 
     /**
@@ -73,7 +73,7 @@ class User extends Authenticatable
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Repositories\Roles\Role', 'role_users');
+        return $this->belongsToMany('FTW\Repositories\Roles\Role', 'role_users');
     }
 
     /**
@@ -81,7 +81,7 @@ class User extends Authenticatable
      */
     public function city()
     {
-        return $this->belongsTo(\App\Repositories\Cities\City::class);
+        return $this->belongsTo(\FTW\Repositories\Cities\City::class);
     }
 
     /**
@@ -89,7 +89,7 @@ class User extends Authenticatable
      */
     public function district()
     {
-        return $this->belongsTo(\App\Repositories\Districts\District::class);
+        return $this->belongsTo(\FTW\Repositories\Districts\District::class);
     }
 
     /**

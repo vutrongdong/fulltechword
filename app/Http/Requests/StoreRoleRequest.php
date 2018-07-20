@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace FTW\Http\Requests;
 
 class StoreRoleRequest extends ApiRequest
 {

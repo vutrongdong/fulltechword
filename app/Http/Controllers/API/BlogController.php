@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace FTW\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\Blogs\BlogRepository;
-use App\Http\Requests\StoreBlogRequest;
-use App\Http\Requests\EditBlogRequest;
-use App\Http\Resources\Blog as BlogResource;
+use FTW\Http\Controllers\Controller;
+use FTW\Repositories\Blogs\BlogRepository;
+use FTW\Http\Requests\StoreBlogRequest;
+use FTW\Http\Requests\EditBlogRequest;
+use FTW\Http\Resources\Blog as BlogResource;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -46,7 +46,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBlogRequest $request
+     * @param  \FTW\Http\Requests\StoreBlogRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreBlogRequest $request)
@@ -59,7 +59,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\EditBlogRequest $request
+     * @param  \FTW\Http\Requests\EditBlogRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

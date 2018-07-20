@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Settings;
+namespace FTW\Repositories\Settings;
 
 use Illuminate\Database\Eloquent\Model;
 

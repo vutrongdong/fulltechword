@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace FTW\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\Categories\CategoryRepository;
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\EditCategoryRequest;
-use App\Http\Resources\Category as CategoryResource;
+use FTW\Http\Controllers\Controller;
+use FTW\Repositories\Categories\CategoryRepository;
+use FTW\Http\Requests\StoreCategoryRequest;
+use FTW\Http\Requests\EditCategoryRequest;
+use FTW\Http\Resources\Category as CategoryResource;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -46,7 +46,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCategoryRequest $request
+     * @param  \FTW\Http\Requests\StoreCategoryRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCategoryRequest $request)
@@ -59,7 +59,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\EditCategoryRequest $request
+     * @param  \FTW\Http\Requests\EditCategoryRequest $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

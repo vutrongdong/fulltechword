@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories\LinkedSocialAccounts;
+namespace FTW\Repositories\LinkedSocialAccounts;
 
-use App\Repositories\LinkedSocialAccounts\LinkedSocialAccount;
-use App\Repositories\BaseRepository;
+use FTW\Repositories\LinkedSocialAccounts\LinkedSocialAccount;
+use FTW\Repositories\BaseRepository;
 
 class LinkedSocialAccountRepository extends BaseRepository
 {

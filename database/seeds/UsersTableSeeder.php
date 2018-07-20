@@ -12,13 +12,13 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         // Super Admin
-        $admin = factory(App\User::class)->create([
-            'name' => 'SuperAdmin',
+        $admin = factory(FTW\User::class)->create([
+            'name' => 'KingDarkness',
             'email' => 'admin@fulltechword.com',
             'password' => 'admin'
         ]);
 
-        $adminRole = factory(App\Repositories\Roles\Role::class)->create([
+        $adminRole = factory(FTW\Repositories\Roles\Role::class)->create([
             'name' => 'Super admin',
             'slug' => 'superadmin',
             'permissions' => [
@@ -31,14 +31,10 @@ class UsersTableSeeder extends Seeder
         ");
 
         // Admin
-        factory(App\Repositories\Roles\Role::class)->create([
+        factory(FTW\Repositories\Roles\Role::class)->create([
             'name' => 'Admin',
             'slug' => 'admin',
             'permissions' => [
-                'admin.manage-user' => true,
-                'admin.access' => true,
-                'admin.report' => true,
-                'setting.update' => true,
                 'role.view' => true,
                 'role.create' => true,
                 'role.update' => true,
@@ -47,14 +43,14 @@ class UsersTableSeeder extends Seeder
         ]);
 
         // Staff
-        factory(App\Repositories\Roles\Role::class)->create([
-            'name' => 'Moderator',
-            'slug' => 'moderator',
-            'permissions' => [
-                'admin.access' => true,
-                'setting.update' => true,
-                'role.view' => true,
-            ]
-        ]);
+        // factory(FTW\Repositories\Roles\Role::class)->create([
+        //     'name' => 'Moderator',
+        //     'slug' => 'moderator',
+        //     'permissions' => [
+        //         'admin.access' => true,
+        //         'setting.update' => true,
+        //         'role.view' => true,
+        //     ]
+        // ]);
     }
 }

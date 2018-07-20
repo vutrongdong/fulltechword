@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Categories;
+namespace FTW\Repositories\Categories;
 
-use App\Repositories\BaseRepository;
+use FTW\Repositories\BaseRepository;
 
 class CategoryRepository extends BaseRepository
 {
@@ -41,5 +41,23 @@ class CategoryRepository extends BaseRepository
 
         $traverse($nodes);
         return $returns;
+    }
+
+    public function getBySlug($slug)
+    {
+        return $this->model
+                    ->where('active', Category::ENABLE)
+                    ->where('slug', $slug)
+                    ->first();
+    }
+
+    public function getFisrtLevel()
+    {
+        return $this->model->where(function ($query) {
+            $query->whereNull('parent_id')
+                ->orWhere('parent_id', 0);
+        })
+        ->where('active', Category::ENABLE)
+        ->get();
     }
 }

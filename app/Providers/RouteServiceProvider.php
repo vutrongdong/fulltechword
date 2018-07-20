@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace FTW\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'FTW\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapFrontendV1Routes();
     }
 
     /**
@@ -69,5 +69,19 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace . '\API')
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "frontend v1" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapFrontendV1Routes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace . '\Frontend\V1')
+             ->group(base_path('routes/frontend_v1.php'));
     }
 }

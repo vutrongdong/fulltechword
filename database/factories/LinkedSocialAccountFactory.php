@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Repositories\LinkedSocialAccounts\LinkedSocialAccount::class, function (Faker $faker) {
+$factory->define(FTW\Repositories\LinkedSocialAccounts\LinkedSocialAccount::class, function (Faker $faker) {
     return [
     	'user_id' => 1,
         'provider_name' => 'facebook',

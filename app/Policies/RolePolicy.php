@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Policies;
+namespace FTW\Policies;
 
-use App\User;
+use FTW\User;
 
 class RolePolicy
 {

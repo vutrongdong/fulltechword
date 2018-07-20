@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Repositories\Districts\District::class, function (Faker $faker) {
+$factory->define(FTW\Repositories\Districts\District::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'city_id' => 1,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Roles;
+namespace FTW\Repositories\Roles;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,7 +25,7 @@ class Role extends Model
      */
     public function users()
     {
-        return $this->belongToMany(\App\User::class, 'role_users');
+        return $this->belongToMany(\FTW\User::class, 'role_users');
     }
 
     /**

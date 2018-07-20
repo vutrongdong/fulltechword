@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Districts;
+namespace FTW\Repositories\Districts;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,7 +24,7 @@ class District extends Model
      */
     public function city()
     {
-        return $this->belongsTo(\App\Repositories\Cities\City::class);
+        return $this->belongsTo(\FTW\Repositories\Cities\City::class);
     }
 
     /**
@@ -33,6 +33,6 @@ class District extends Model
      */
     public function users()
     {
-        return $this->hasMany(\App\User::class);
+        return $this->hasMany(\FTW\User::class);
     }
 }

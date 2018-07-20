@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace FTW\Policies;
 
-use App\User;
-use App\Repositories\Categories\Category;
+use FTW\User;
+use FTW\Repositories\Categories\Category;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CategoryPolicy
@@ -13,8 +13,8 @@ class CategoryPolicy
     /**
      * Determine whether the user can view the category.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Category  $category
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Category  $category
      * @return mixed
      */
     public function view(User $user, Category $category = null)
@@ -25,7 +25,7 @@ class CategoryPolicy
     /**
      * Determine whether the user can create category.
      *
-     * @param  \App\User  $user
+     * @param  \FTW\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -36,8 +36,8 @@ class CategoryPolicy
     /**
      * Determine whether the user can update the category.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Category  $category
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Category  $category
      * @return mixed
      */
     public function update(User $user, Category $category)
@@ -48,8 +48,8 @@ class CategoryPolicy
     /**
      * Determine whether the user can delete the category.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Category  $category
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Category  $category
      * @return mixed
      */
     public function delete(User $user, Category $category)

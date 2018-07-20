@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories\Blogs;
+namespace FTW\Repositories\Blogs;
 
-use App\Repositories\BaseRepository;
-use App\Repositories\UploadTrait;
+use FTW\Repositories\BaseRepository;
+use FTW\Repositories\UploadTrait;
 
 class BlogRepository extends BaseRepository
 {
@@ -72,5 +72,40 @@ class BlogRepository extends BaseRepository
                 : $record->delete();
         }
         return null;
+    }
+
+    public function getForHome()
+    {
+        return $this->model
+                    ->where('active', Blog::ENABLE)
+                    ->orderBy('created_at', 'DESC')
+                    ->orderBy('updated_at', 'DESC')
+                    ->simplePaginate(20);
+    }
+
+    public function getForLastest()
+    {
+        return $this->model
+                    ->where('active', Blog::ENABLE)
+                    ->orderBy('created_at', 'DESC')
+                    ->orderBy('updated_at', 'DESC')
+                    ->limit(10)
+                    ->get();
+    }
+
+    public function getBySlug($slug)
+    {
+        return $this->model
+                    ->where('active', Blog::ENABLE)
+                    ->where('slug', $slug)
+                    ->first();
+    }
+
+    public function getByCategory($cid)
+    {
+        return $this->model
+                    ->where('active', Blog::ENABLE)
+                    ->where('category_id', $cid)
+                    ->simplePaginate(20);
     }
 }

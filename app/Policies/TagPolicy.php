@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace FTW\Policies;
 
-use App\User;
-use App\Repositories\Tags\Tag;
+use FTW\User;
+use FTW\Repositories\Tags\Tag;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TagPolicy
@@ -13,8 +13,8 @@ class TagPolicy
     /**
      * Determine whether the user can view the tag.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Tag  $tag
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Tag  $tag
      * @return mixed
      */
     public function view(User $user, Tag $tag = null)
@@ -25,7 +25,7 @@ class TagPolicy
     /**
      * Determine whether the user can create tag.
      *
-     * @param  \App\User  $user
+     * @param  \FTW\User  $user
      * @return mixed
      */
     public function create(User $user)
@@ -36,8 +36,8 @@ class TagPolicy
     /**
      * Determine whether the user can update the tag.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Tag  $tag
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Tag  $tag
      * @return mixed
      */
     public function update(User $user, Tag $tag)
@@ -48,8 +48,8 @@ class TagPolicy
     /**
      * Determine whether the user can delete the tag.
      *
-     * @param  \App\User  $user
-     * @param  \App\Repositories\Categories\Tag  $tag
+     * @param  \FTW\User  $user
+     * @param  \FTW\Repositories\Categories\Tag  $tag
      * @return mixed
      */
     public function delete(User $user, Tag $tag)

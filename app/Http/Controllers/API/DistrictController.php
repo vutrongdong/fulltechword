@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace FTW\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Repositories\Districts\DistrictRepository;
+use FTW\Http\Controllers\Controller;
+use FTW\Repositories\Districts\DistrictRepository;
 
 class DistrictController extends Controller
 {

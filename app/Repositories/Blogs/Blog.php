@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Blogs;
+namespace FTW\Repositories\Blogs;
 
-use App\Repositories\Entity;
+use FTW\Repositories\Entity;
 
 class Blog extends Entity
 {
@@ -46,7 +46,7 @@ class Blog extends Entity
 
     public function getImage()
     {
-        return $this->image ? asset($this->imgPath . '/' . $this->image) : null;
+        return $this->image ? asset($this->imgPath . '/' . $this->image) : 'http://via.placeholder.com/1024x500';
     }
 
     public function scopeQ($query, $value = null)
@@ -61,6 +61,6 @@ class Blog extends Entity
 
     public function tags()
     {
-        return $this->belongsToMany(\App\Repositories\Tags\Tag::class, 'blog_tag');
+        return $this->belongsToMany(\FTW\Repositories\Tags\Tag::class, 'blog_tag');
     }
 }

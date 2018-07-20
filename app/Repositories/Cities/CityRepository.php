@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Cities;
+namespace FTW\Repositories\Cities;
 
-use App\Repositories\BaseRepository;
+use FTW\Repositories\BaseRepository;
 
 class CityRepository extends BaseRepository
 {

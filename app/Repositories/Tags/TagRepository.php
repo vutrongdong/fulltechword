@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Tags;
+namespace FTW\Repositories\Tags;
 
-use App\Repositories\BaseRepository;
+use FTW\Repositories\BaseRepository;
 
 class TagRepository extends BaseRepository
 {

@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Repositories\Settings\Setting::class, function (Faker $faker) {
+$factory->define(FTW\Repositories\Settings\Setting::class, function (Faker $faker) {
     return [
         'title'       => $faker->name,
         'keywords'    => implode($faker->words(10, false), ', '),

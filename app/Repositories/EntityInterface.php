@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace FTW\Repositories;
 
 interface EntityInterface
 {

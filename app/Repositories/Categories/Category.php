@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories\Categories;
+namespace FTW\Repositories\Categories;
 
-use App\Repositories\Entity;
+use FTW\Repositories\Entity;
 use Kalnoy\Nestedset\NodeTrait;
 
 class Category extends Entity
