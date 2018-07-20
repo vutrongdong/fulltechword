@@ -99,8 +99,23 @@ export default {
         }, 500),
 
         deleteBlog (id) {
-            this.removeBlog(id)
-            this.filter()
+            swal({
+              title: 'Cảnh báo?',
+              text: "Bạn chắc chắn muốn xóa bản ghi này?",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Xóa',
+              cancelButtonText: 'Không',
+              reverseButtons: true,
+              confirmButtonClass: 'btn btn-success',
+              cancelButtonClass: 'btn btn-danger mr-2',
+              buttonsStyling: false,
+            }).then((result) => {
+              if (result) {
+                this.removeBlog(id)
+                this.filter()
+              }
+            })
         }
     },
     computed: {

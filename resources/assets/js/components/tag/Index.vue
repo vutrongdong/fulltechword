@@ -91,8 +91,23 @@ export default {
         }, 500),
 
         deleteTag (id) {
-            this.removeTag(id)
-            this.filter()
+            swal({
+              title: 'Cảnh báo?',
+              text: "Bạn chắc chắn muốn xóa bản ghi này?",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Xóa',
+              cancelButtonText: 'Không',
+              reverseButtons: true,
+              confirmButtonClass: 'btn btn-success',
+              cancelButtonClass: 'btn btn-danger mr-2',
+              buttonsStyling: false,
+            }).then((result) => {
+              if (result) {
+                this.removeTag(id)
+                this.filter()
+              }
+            })
         }
     },
     computed: {
