@@ -110,8 +110,8 @@
                             </div>
                             <hr>
                             <div>
-                                <h5>Hoặc thêm tag mới:</h5>
-                                <tag-form @submit="createTag" type="modal" />
+                                <h5>Hoặc thêm tag mới: <button class="btn btn-icon waves-effect waves-light btn-primary pull-right"> <i class="fa fa-plus" @click="newTagForm = !newTagForm"></i> </button></h5>
+                                <tag-form v-if="newTagForm" @submit="createTag" type="modal" />
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,8 @@ export default {
                 "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
                 "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
                 "save table contextmenu directionality emoticons template paste textcolor"
-            ]
+            ],
+            newTagForm: false
         }
     },
     computed: {
