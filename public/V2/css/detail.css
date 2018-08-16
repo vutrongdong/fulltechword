@@ -1,0 +1,335 @@
+
+.icon-bar {
+  position: fixed;
+  top: 94%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+.addicon{
+     transition: top .8s;
+     top: 160px;
+ }
+
+ .vivisibility{
+    visibility: hidden;
+ }
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s ease;
+  color: white;
+     font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/*.icon-bar a:hover {
+    background-color: #000;
+}*/
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+.img-bottom{
+    clear: both;
+    padding-top: 40px;
+    width: 50%;
+  margin: 0 auto;  
+}
+    .share{
+        margin-top: 50px;
+    }
+    .share a:hover{
+        position: absolute;
+        margin-top: 10px;
+    }
+.share i{
+    padding:5px 10px 5px 0px;
+    background: #green;
+}
+.share a{
+    padding: 8px 20px;
+    border-radius: 5px;
+} 
+.share a:hover{
+    margin-top: -15px;
+    color: #fff;
+    text-decoration: none;
+}
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+#one-post-detail{
+    padding-top: 30px;
+}
+#one-post-detail .icon-detail{
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#one-post-detail .author{
+       padding-left: 0.5em;
+         padding-right: 0.5em
+}
+
+#one-post-detail .img img{
+    width: 100%;
+    margin-bottom: 1.3em;
+    }
+
+#one-post-detail .content{
+      margin-top: 1.5em;
+}
+
+#one-post-detail .content  .separator img{
+        border: none;
+}
+#one-post-detail .icon-detail span i{
+  margin-right: 0.6em;
+}
+
+
+
+
+#banner-left{
+    padding: 34px;
+    background-color: #f7f7f7;
+}
+
+#banner-left img{
+       margin: 0px auto;
+      width: 40em;
+}
+
+
+
+#latest-tori{
+      padding-top: 20px;
+}
+#latest-tori .padd0{
+    padding-bottom:1.2em;
+}
+
+
+
+#latest-tori .title-latest-tori{
+    font-size: 1.5em;
+    display: inline-block;
+    border-bottom: 4px solid black;
+    font-weight: bold;
+    margin-bottom: 1.2em;
+}
+
+#latest-tori a{
+      color: black;
+       text-decoration: none;
+}
+
+#latest-tori img{
+    width: 17em;
+    padding-bottom: 10px;
+}
+
+#latest-tori .title-image-latest-tori h6{
+   font-weight: bold;
+}
+#latest-tori .title-image-latest-tori h6 a{
+    color: black;
+    text-decoration: none;
+    }
+
+#latest-tori .icon-detail span i{
+        margin-right: 0.5em;
+
+}
+
+#best-deal .paddTop-20 .price-best-deal span i{
+        margin-right: 0.5em;
+}
+
+.marTop2{
+      margin-top: 2em;
+}
+@media all and (max-width:1024px){
+     #one-post-detail .img img{
+        width: 43em;
+
+    }
+    #latest-tori img{
+          width:14em;
+    }
+
+    #best-deal .paddTop-20 img{
+        width: 100%;
+    }
+    #best-deal .paddTop-20 .title-best-deal{
+        text-align: center;
+    }
+    #best-deal .paddTop-20 .price-best-deal{
+        text-align: center;
+    }
+}
+
+@media all and (max-width:768px){
+#one-post-detail .title-detail h1{
+        font-size: 2em;
+        text-align: center;
+}
+
+#one-post-detail .icon-detail{
+        text-align: center;
+}
+
+ #one-post-detail .img img{
+        width: 100%;
+    }
+#one-post-detail .content{
+      text-align: center;
+    }
+
+ #best-deal .paddTop-20 img{
+        width:100%;
+    }
+
+#latest-tori img{
+        width: 20em;
+    }
+}
+
+
+
+@media all and (max-width:425px){
+     #one-post-detail .title-detail h1{
+        font-size: 1.4em;
+        text-align: center;
+    }
+    #one-post-detail  .icon-detail{
+        text-align: center;
+       }
+    #one-post-detail .img img{
+            width: 25em;
+    }
+
+    #banner-left{
+        padding: 25px;
+    }
+    #banner-left img{
+        width: 23em;
+    }
+    #best-deal .paddTop-20 img{
+        width: 100%;
+    }
+
+
+    #latest-tori .title-image-latest-tori h6 {
+    text-align: center;
+    }
+    #latest-tori .content-image-latest-tori{
+        text-align: center;
+    }
+    #latest-tori img{
+         width: 24.5em;
+
+    }
+
+    #best-deal .paddTop-20 .title-best-deal{
+    text-align: center;
+ }
+#best-deal .paddTop-20 .price-best-deal{
+text-align: center;
+    margin-bottom: 12px;
+}
+    #home-footer .menu-footer .title-footer-menu {
+        text-align: center;
+    }
+
+    #home-footer .menu-footer .menu-footer ul li{
+        text-align: center;
+    }
+
+}
+
+@media all and (max-width:375px){
+    #one-post-detail .title-detail h1{
+        font-size: 1.2em;
+        text-align: center;
+    }
+    #one-post-detail  .icon-detail{
+        text-align: center;
+       }
+    #one-post-detail .img img{
+            width: 21.6em;
+    }
+#banner-left{
+    padding: 26px;
+}
+
+#banner-left img{
+    width: 19em;
+      }
+
+#best-deal .paddTop-20 img{
+    width:100%;
+}
+
+ #latest-tori img {
+    width: 21.5em;
+     }
+
+
+}
+
+@media all and (max-width:320px){
+#one-post-detail .img img{
+        width: 18em;
+}
+#one-post-detail .title-detail h1{
+    font-size: 1em;
+    text-align: center;
+}
+
+#one-post-detail .author{
+    font-size: 0.9em;
+}
+
+#banner-left{
+    padding: 26px;
+}
+
+#banner-left img{
+    width: 17em;
+ }
+
+ #best-deal .paddTop-20 img
+ {
+    width: 100%;
+ }
+
+
+ #latest-tori img {
+    width:18em;
+ }
+
+
+}

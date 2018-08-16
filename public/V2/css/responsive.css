@@ -1,0 +1,243 @@
+@media all and (min-width:1024px){
+#post .details{
+    padding-left:0px;
+}
+}
+@media all and (max-width:1024px){
+   img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+#banner .banner-right img {
+    width: 100%;
+
+}
+#form-home form{
+    padding: 0.6em;
+}
+.header-top #logo{
+    width: 330px;
+    margin-bottom: 0.5em;
+}
+.header-top .header-right{
+    display: none;
+}
+}
+@media all and (max-width:991px){
+    .marRight7 span{
+        top: -58px;
+        position: absolute;
+        color: #fff;
+        margin-right: 30px;
+        right: -27px;
+    }
+    .search-here{
+        position: absolute;
+        right:0px;
+        top: 14px;
+        margin-right: 5px;
+    }
+    .background .navbar-collapse{
+        margin-top: 20px;
+        background: #5b5b5b;
+        z-index:1000;
+        position: relative;
+        color: #fff;
+    }
+    .navbar-toggler{
+        position: relative;
+    }
+    .header-menu .bg-light .navbar-nav .nav-item .nav-link{
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-decoration: underline;
+    }
+}
+
+@media all and (max-width:767px){
+ .header-top .header-right a{
+     font-size: 1em;
+ }
+
+ img{
+    /*width: 25em;*/
+}
+#post .one-post{
+ margin-bottom: 3em;
+}
+
+#post .one-post .details .item-label span{
+    font-size: 0.8em;
+}
+
+.hidden-md-down {
+    display: none !important;
+}
+
+/* end post  */
+#form-home form h3{
+    text-align: center;
+}
+#form-home form p{
+    text-align: center;
+}
+.menu-footer{
+    text-align: center;
+}
+}
+@media all and (max-width:425px){
+#post .details{
+    padding-left: 15px;
+    }
+}
+@media all and (max-width:425px){
+    .header-top{
+       margin-bottom: 0px;
+   }
+   .header-top #logo{
+    width: 200px;
+    margin-bottom: 0.5em;
+}
+    .marRight7 span{
+        top: -53px;
+    }
+
+img{
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+#collapsibleNavbar .navbar-nav .nav-item .nav-link{
+    text-align: center;
+}
+.marRight7{
+ margin-right: 3em;
+}
+/* end header  */
+#post .one-post .details .title{
+    text-align: center;
+}
+#post .one-post .details .item-label{
+    text-align: center;
+}
+#post .one-post .details .home-content{
+  text-align: center;
+}
+
+/* end post  */
+
+#form-home{
+    height: 21em;
+    margin-top: 2em;
+}
+
+
+#form-home form{
+    padding: 0.6em;
+}
+#form-home form h3{
+    color: white;
+    font-size: 1.4em;
+}
+#form-home form p{
+    padding :0.6em 0em;
+    text-align: center;
+}
+#form-home form .email{
+    width: 100%;
+}
+
+}
+
+@media all and (max-width:375px){
+
+    .header-top #logo{
+     margin-bottom: 0.5em;
+ }
+.top_bar{
+    display: none;
+}
+ img{
+    margin-right: 0px;
+}
+
+#collapsibleNavbar .navbar-nav .nav-item .nav-link{
+    text-align: center;
+}
+.marRight7{
+ margin-right: 2em;
+}
+
+/* end post  */
+
+#form-home{
+    height: 21em;
+    margin-top: 2em;
+}
+
+
+#form-home form{
+    padding: 0.6em;
+}
+#form-home form h3{
+    color: white;
+    font-size: 1.2em;
+}
+#form-home form p{
+    padding :0.6em 0em;
+}
+#form-home form .email{
+    width: 100%;
+}
+}
+@media all and (max-width:320px){   
+ .header-top #logo{
+  margin-bottom:  0.5em;
+}
+#collapsibleNavbar .navbar-nav .nav-item .nav-link{
+    text-align: center;
+}
+.marRight7{
+ margin-right: 2em;
+}
+
+/* end header  */
+
+#post{
+    margin-top: 20px;
+}
+img{
+    float: left;
+    margin-right: 0px;
+}
+#post .one-post .details .title a{
+    margin-top: 0.5em;
+}
+#post .one-post .details .item-label span{
+   font-size: 0.8em;
+}
+/* end post  */
+
+
+#form-home{
+
+    height: 21em;
+    margin-top: 2em;
+}
+
+
+#form-home form h3{
+    color: white;
+    font-size: 1em;
+}
+#form-home form p{
+    padding :0.6em 0em;
+}
+#form-home form .email{
+    width: 100%;
+}
+
+
+
+
+}
