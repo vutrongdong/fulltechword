@@ -78,8 +78,8 @@ export default {
     data () {
         return {
             filters: {
-                q: null,
-                page: null
+                q: '',
+                page: ''
             }
         }
     },

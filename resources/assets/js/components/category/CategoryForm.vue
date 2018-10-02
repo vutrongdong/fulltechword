@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label class="text-right" for="parent_id">Danh mục cha</label>
                     <select class="form-control" id="parent_id" v-model="category.parent_id">
-                        <option :value="null">Chọn danh mục cha</option>
+                        <option :value="''">Chọn danh mục cha</option>
                         <option v-for="category in categories" :value="category.id" :key="category.id">{{ category.name }}</option>
                     </select>
                 </div>
@@ -66,11 +66,11 @@ export default {
             type: Object,
             default: () => {
                 return {
-                    name: null,
-                    slug: null,
-                    icon: null,
+                    name: '',
+                    slug: '',
+                    icon: '',
                     priority: 0,
-                    parent_id: null,
+                    parent_id: '',
                     active: true
                 }
             }
@@ -79,11 +79,11 @@ export default {
     data() {
         return {
             category: {
-                name: null,
-                slug: null,
-                icon: null,
+                name: '',
+                slug: '',
+                icon: '',
                 priority: 0,
-                parent_id: null,
+                parent_id: '',
                 active: true
             },
             categories: []
@@ -138,7 +138,7 @@ export default {
             this.$validator.validate().then(result => {
                 if (result) {
                     let category = Object.assign(this.category)
-                    category.parent_id = category.parent_id !== null ? category.parent_id : 0
+                    category.parent_id = category.parent_id !== '' ? category.parent_id : 0
                     this.$emit('submit', category)
                 } else {
                     $.Notification.autoHideNotify('warning', 'top right', 'Cảnh báo', 'Vui lòng kiểm tra thông tin cần nhập')

@@ -20,7 +20,7 @@ const debug = process.env.NODE_ENV !== 'production'
  */
 const state = {
   iloading: false,
-  app_errors: null
+  app_errors: ''
 }
 
 /**
@@ -76,6 +76,6 @@ export default new Vuex.Store({
     state,
     actions,
     mutations,
-    getters,
+    
     plugins: debug ? [createLogger()] : []
 });

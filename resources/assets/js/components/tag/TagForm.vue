@@ -51,10 +51,10 @@ export default {
             type: Object,
             default: () => {
                 return {
-                    name: null,
-                    slug: null,
-                    icon: null,
-                    color: null
+                    name: '',
+                    slug: '',
+                    icon: '',
+                    color: ''
                 }
             }
         }
@@ -62,10 +62,10 @@ export default {
     data() {
         return {
             tag: {
-                name: null,
-                slug: null,
-                icon: null,
-                color: null
+                name: '',
+                slug: '',
+                icon: '',
+                color: ''
             }
         }
     },

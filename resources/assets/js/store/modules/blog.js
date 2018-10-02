@@ -52,7 +52,7 @@ const actions = {
     const { blog, cb } = payload || {}
 
     try {
-        let response = null
+        let response = ''
       if (blog.id) {
         response = await axios.put('/blogs/'+blog.id, blog)
       } else {

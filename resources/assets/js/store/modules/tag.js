@@ -52,7 +52,7 @@ const actions = {
     const { tag, cb } = payload || {}
 
     try {
-        let response = null
+        let response = ''
       if (tag.id) {
         response = await axios.put('/tags/'+tag.id, tag)
       } else {

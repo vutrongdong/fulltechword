@@ -128,14 +128,14 @@ export default {
         },
 
         loadUser() {
-            let uID = this.$route.params.id || null;
+            let uID = this.$route.params.id || '';
             this.getUser({
                 id: uID,
                 cb: this.fillUser
             });
 
-            this.title = uID == null ? 'Create a new user' : 'Edit user'
-            this.formType = uID == null ? true : false //
+            this.title = uID == '' ? 'Create a new user' : 'Edit user'
+            this.formType = uID == '' ? true : false //
         },
 
         fillUser(user) {

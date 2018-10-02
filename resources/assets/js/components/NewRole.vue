@@ -76,16 +76,16 @@ export default {
         },
 
         getRole() {
-            let rID = this.$route.params.id || null;
+            let rID = this.$route.params.id || '';
             let role = filter(this.allRoles, r => r.id == rID)[0];
             this.role = assign({}, this.role, role);
         },
 
         loadRole() {
-            let rID = this.$route.params.id || null;
+            let rID = this.$route.params.id || '';
             this.getRole(rID);
 
-            this.title = rID == null ? 'Create a new role' : 'Edit role'
+            this.title = rID == '' ? 'Create a new role' : 'Edit role'
         },
 
         submitForm() {

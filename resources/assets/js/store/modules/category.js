@@ -52,7 +52,7 @@ const actions = {
     const { category, cb } = payload || {}
 
     try {
-        let response = null
+        let response = ''
       if (category.id) {
         response = await axios.put('/categories/'+category.id, category)
       } else {
